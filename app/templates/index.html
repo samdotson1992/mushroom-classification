@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Should I eat this mushroom?</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body >
+ <div class="login">
+	<h1>Should I eat this Mushroom?</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="habitat">Choose a habitat:</label>
+      <select id="habitat" name="habitat">
+        <option value="g">grasses </option>
+        <option value="l">leaves</option>
+        <option value="m">meadows </option>
+        <option value="p">paths</option>
+        <option value="u">urban</option>
+        <option value="w">waste</option>
+        <option value="d">woods</option>
+      </select> 
+
+      <label for="gill-size">Choose a Gill Size:</label>
+      <select id="gill-size" name="gill-size">
+        <option value="b">broad</option>
+        <option value="n">narrow</option>    
+      </select> 
+
+      <label for="spore-print-color">Choose a Spore Print Color:</label>
+      <select id="spore-print-color" name="spore-print-color">
+        <option value="k">black</option>
+        <option value="n">brown</option>
+        <option value="b">buff</option>
+        <option value="h">chocolate</option>
+        <option value="r">green</option>
+        <option value="o">orange</option>
+        <option value="u">purple</option>
+        <option value="w">white</option>
+        <option value="y">yellow</option>        
+      </select> 
+
+      <label for="population">Choose a population:</label>
+      <select id="population" name="population">
+        <option value="a">abundant </option>
+        <option value="c">clustered </option>
+        <option value="n">numerous </option>
+        <option value="s">scattered </option>
+        <option value="v">several</option>
+        <option value="y">solitary</option>
+      </select> 
+
+      <label for="cap-surface" >Choose a cap surface:</label>
+      <select id="cap-surface" name="cap-surface">
+        <option value="f">fibrous</option>
+        <option value="g">grooves</option>
+        <option value="y">scaly </option>
+        <option value="s">smooth</option>
+      </select> 
+
+      <br> 
+      <button type="submit" class="btn btn-primary btn-block btn-large">Should I eat this mushroom?</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ 
+
+ </div>
+</body>
+</html>
